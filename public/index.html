@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LLM Chat App</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    #chat { border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px; }
+    .user { color: blue; }
+    .assistant { color: green; }
+  </style>
+</head>
+
+<body>
+
+<h2>Chat App</h2>
+
+<div id="chat"></div>
+
+<input id="msg" placeholder="Type message..." />
+<button onclick="send()">Send</button>
+
+<script>
 const sessionId = "user1";
 
 async function send() {
@@ -24,9 +46,15 @@ async function loadHistory() {
 
   data.forEach(m => {
     chat.innerHTML += `
-      <div><b>${m.role}:</b> ${m.content}</div>
+      <div class="${m.role}">
+        <b>${m.role}:</b> ${m.content}
+      </div>
     `;
   });
 }
 
 loadHistory();
+</script>
+
+</body>
+</html>
